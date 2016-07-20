@@ -1,0 +1,30 @@
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-1_2.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-1_2
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-2_2.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-2_2
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-3_2.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-3_2
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-4_2.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-4_2
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-5_2.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-5_2
+
+./lookbusy -c 95
+
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-1_1.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-1_1
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-2_1.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-2_1
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-3_1.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-3_1
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-4_1.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-4_1
+time ./bin/spark-submit --master local[6] SimpleWordCount/simplewordcount_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/megadata-1-5_1.txt 1 /usr/local/spark/SimpleWordCount/data/output-1-5_1
+
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-1_1/part-00000 output-1-1/part1
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-1_2/part-00000 output-1-1/part2
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-2_1/part-00000 output-1-2/part1
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-2_2/part-00000 output-1-2/part2               
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-3_1/part-00000 output-1-3/part1
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-3_2/part-00000 output-1-3/part2
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-4_1/part-00000 output-1-4/part1               
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-4_2/part-00000 output-1-4/part2
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-5_1/part-00000 output-1-5/part1
+yxs182@CSE-cslkvm05:/usr/local/spark/SimpleWordCount/data$ cp output-1-5_2/part-00000 output-1-5/part2
+
+time ./bin/spark-submit --master local[6] SimpleWordCount/wordcountreduce_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/output-1-1
+time ./bin/spark-submit --master local[6] SimpleWordCount/wordcountreduce_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/output-1-2
+time ./bin/spark-submit --master local[6] SimpleWordCount/wordcountreduce_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/output-1-3
+time ./bin/spark-submit --master local[6] SimpleWordCount/wordcountreduce_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/output-1-4
+time ./bin/spark-submit --master local[6] SimpleWordCount/wordcountreduce_2.10-1.0.jar /usr/local/spark/SimpleWordCount/data/output-1-5
